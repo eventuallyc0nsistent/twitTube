@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="static/css/carousel.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<div class="row">
+    <div class='text-center'>
+    <h2>Some of our users say these things</h2>
+    </div>
+  </div>
+  <div class='row'>
+    <div>
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#quote-carousel" data-slide-to="1"></li>
+          <li data-target="#quote-carousel" data-slide-to="2"></li>
+        </ol>
+        
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner">
+        
+          <!-- Quote 1 -->
+          <div class="item active">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-3 text-center">
+                  <img class="img-circle" src="static/img/carousel/peter-griffin.jpg" style="width: 100px;height:100px;">
+                </div>
+                <div class="col-sm-9">
+                  <p>Using twitTube I've got an idea--an idea so smart that my head would explode if I even began to know what I'm talking about.</p>
+                  <small>Peter Griffin</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          <!-- Quote 2 -->
+          <div class="item">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-3 text-center">
+                  <img class="img-circle" src="static/img/carousel/homer.jpg" style="width: 100px;height:100px;">
+                </div>
+                <div class="col-sm-9">
+                  <p>Oh, so they have internet on computers now! So I started shooting videos of myself on twitTube. Can't wait to use it on Internet Explorer. Doh !</p>
+                  <small>Homer Simpson</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          <!-- Quote 3 -->
+          <div class="item">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-3 text-center">
+                  <img class="img-circle" src="static/img/carousel/stewie-griffin.jpg" style="width: 100px;height:100px;">
+                </div>
+                <div class="col-sm-9">
+                  <p>I was the only one who would completely fit in image so I had to give them a quote. </p>
+                  <small>Stewie Griffin</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+        
+        <!-- Carousel Buttons Next/Prev -->
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+      </div> 
+    </div>  
+</div>  
+<div style="clear:both"></div>
+<br><br>
+<p class="lead">Record short videos and post it on the thread. Reply to video threads just through your webcam.</p>
+<p class="lead">
+<br>
+<a href="{{ url_for('signup') }}"><button id="signup" class="btn btn-lg btn-primary">Signup</button></a>
+</p>
+
+{% endblock %}

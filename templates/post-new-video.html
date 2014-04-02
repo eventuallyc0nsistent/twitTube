@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% set active_page='post-new-video' %}
+{% block body %}
+<div id="timeline">
+    <legend>Post New Video</legend>
+    <div class="alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Warning: <b>You only get 1 chance to Record.</b> <br> Once you stop the video it will be on our servers.
+    </div>
+    <!-- <div class="row">
+        <input id="video-title" type="text" name="title" value="" class="form-control input-lg" placeholder="Title for Video">
+    </div> -->
+    <div id="progressbar">
+        <progress min="0" max="100" value="0">0% complete</progress>
+    </div>
+    <br>
+    <div class="record-buttons">
+		  <button id="camera-me" class="btn btn-success">1. Turn on camera</button>
+		  <button id="record-me" disabled class="btn btn-success">2. Record ⚫</button>
+		  <button id="stop-me" disabled class="btn btn-success">◼ Stop &amp; Reply</button>
+		  <br><br>
+		  <div class="videos">
+		  <video class="left" id="video-recorder" autoplay></video>
+		  <div id="video-preview" class="right clearfix">
+			  <span id="elasped-time"></span>
+		  </div>
+		  </div>
+    </div>
+    
+    
+</div>
+<script src="static/js/scripts.js"></script>
+{% endblock %}

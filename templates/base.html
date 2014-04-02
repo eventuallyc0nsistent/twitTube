@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>twitTube</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+  <script src="static/js/jQuery.v1.11.0.min.js"></script>
+  
+</head>
+<body>
+	<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"><a href="{{ url_for('index') }}">twitTube</a></h3>
+              {% set navigation_bar = [ ('/', 'index', 'Home'),
+                                        ('/post-new-video', 'post-new-video', 'Post Video'),
+                                        ('/demo', 'demo', 'Demo'),] 
+              %}
+              {% set active_page = active_page|default('index') %}
+              <ul class="nav masthead-nav">
+                {% for href, id, caption in navigation_bar %}
+                <li{% if id == active_page %} class="active"{% endif%}>
+                    <a href="{{ href|e }}">{{ caption|e }}</a>
+                </li>
+                {% endfor %}
+
+                {% if(logged_in) %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                <li><a href="/signup">Signup</a></li>
+                {% endif %}
+                
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover">
+          	<br>
+            {% block body %}
+            
+            {% endblock %}
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>twitTube by <a href="#">Kiran Koduru</a> &amp; <a href="#">Keval Sheth</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+	<script src="static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/js/whammy.min.js"></script>
+	
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+body{font-size: 12px}
+
+.masthead-nav > li > a { font-size: 13px}
+
+h2{font-size: 20px}
+
+blockquote{font-size: 15px}
+
+.lead {font-size: 13px}
+
+.btn-lg {font-size: 15px}
+
+.btn-small {font-size: 12px}
+
+#timeline video {width:250px;height:150px;}
+#timeline .number {left: 28px; top: -6px; font-size: 17px ; padding: 12px}
+#timeline 	.single-line{display: none}
+#timeline .btn {font-size: 12px}
+#timeline #video-recorder {clear:both; float: none}
+#timeline #video-preview {display: none}
+}
+
+@media (max-width: 390px){
+	.record-buttons .btn{font-size: 10px !important;}
+	#timeline .number {left:6%; top:24%;}
+}

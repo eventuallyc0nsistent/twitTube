@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set active_page='signup' %}
+{% block body%}
+<div class="row">
+	<div id="signup" class="col-md-9 col-md-offset-1">
+		{% from "_formhelpers.html" import render_field %}
+		<form action="/signup" method="post" accept-charset="utf-8" class="form" role="form">
+			<legend>Sign Up</legend>
+			<h4>
+				It's free and always will be.
+			</h4>
+			{% if error %}
+            <div class="alert alert-danger no-shadow">
+                <strong>Error:</strong> {{ error }}
+            </div>
+            {% endif %}
+			<!-- <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"> -->
+			{{ render_field(form.firstname,class="form-control input-lg",placeholder="Firstname") }}
+			<br>
+			<!-- <input type="text" name="lastname" value="" class="form-control form-control input-lg" placeholder="Last Name"> -->
+			{{ render_field(form.lastname,class="form-control input-lg",placeholder="Lastname") }}
+			<br>
+			<!-- <input type="text" name="email" value="" class="form-control form-control input-lg" placeholder="Email"> -->
+			{{ render_field(form.email,class="form-control input-lg",placeholder="Email") }}
+			<br>
+			<!-- <input type="text" name="username" value="" class="form-control form-control input-lg" placeholder="Username"> -->
+			{{ render_field(form.username,class="form-control input-lg",placeholder="Username") }}
+			<br>
+			<!-- <input type="password" name="password" value="" class="form-control form-control input-lg" placeholder="Password"> -->
+			{{ render_field(form.password,class="form-control input-lg",placeholder="Password") }}
+			<br>
+			{{ render_field(form.confirm,class="form-control input-lg",placeholder="Confirm Password") }}
+			<br>
+			<span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span> <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" value="Register">Create my account</button>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/js/signup.validate.js"></script>
+{% endblock %}

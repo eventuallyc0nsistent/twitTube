@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<br><br><br>
+<div class="row" id="page_not_found">
+    <div class="col-md-12">
+        <div class="error-template">
+            <h1>
+                Oops!</h1>
+            <h2>
+                404 Not Found</h2>
+            <div class="error-details">
+                Sorry, an error has occured, Requested page not found!
+            </div>
+            <br><br><br>
+            <div class="error-actions">
+                <a href="{{ url_for('index') }}" class="btn btn-primary btn-med">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Take Me Home
+                </a>
+                &nbsp;&nbsp;
+                <a href="http://aws.amazon.com" class="btn btn-default btn-med">
+                    <span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;Contact Support 
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

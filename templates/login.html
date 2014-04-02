@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% set active_page = "login" %}
+{% block body %}
+<br>
+
+    <div id="login" class="row">
+        <div class=" col-md-7 col-md-offset-2">
+            <legend >Sign in</legend>
+            <h4>
+				To continue to twitTube sign in here
+			</h4>
+            {% if error %}
+            <div class="alert alert-danger no-shadow">
+                <strong>Error:</strong> {{ error }}
+            </div>
+            {% endif %}
+            <br>
+            <div class="account-wall">
+                <img class="profile-img" src="static/img/photo.png"
+                    alt="">
+                <form class="form-signin" action="{{ url_for('login') }}" method="POST">
+                    <input name="username" type="text" class="form-control" placeholder="Username" required autofocus>
+                    <br>
+                    <input name="password" type="password" class="form-control" placeholder="Password" required>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Sign in</button>
+                </form>
+                <br>
+                <a href="twitter-login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in with twitter</a>
+            </div>
+            <br>
+            <a href="{{ url_for('signup') }}" class="text-center new-account">Create an account </a>
+        </div>
+    </div>
+
+{% endblock %}

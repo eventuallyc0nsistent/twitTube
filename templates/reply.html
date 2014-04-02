@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set active_page='demo' %}
+{% block body %}
+<div id="timeline">
+    {% for row in reply_video_list %}
+	<div class="row">
+			<span class="number">#{{ loop.index }}</span>
+            <video width="400" controls>
+              <source src="{{ row['video_url'] }}" type="video/webm">
+            </video>
+            <div class="single-line"></div>
+    </div>
+    {% endfor %}
+    <div id="progressbar">
+        <progress min="0" max="100" value="0">0% complete</progress>
+    </div>
+    <div class="record-buttons">
+		  <button id="camera-me" class="btn btn-success">1. Turn on camera</button>
+		  <button id="record-me" disabled class="btn btn-success">2. Record ⚫</button>
+		  <button id="stop-me" disabled class="btn btn-success">◼ Stop &amp; Reply</button>
+		  <br><br>
+		  <div class="videos">
+		  <video class="left" id="video-recorder" autoplay></video>
+		  <div id="video-preview" class="right clearfix">
+			  <span id="elasped-time"></span>
+		   </div>
+		  </div>
+    </div>
+</div>
+<script src="static/js/scripts.js"></script>
+{% endblock %}

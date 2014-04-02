@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set active_page='demo' %}
+{% block body %}
+<legend>All user videos</legend>
+<div id="video-gallery">
+		<ul class="thumbnails">
+            {% if(user_videos_list) %}
+              
+            {% for row in user_videos_list %}
+            <li>
+              <div class="video">
+                <video width="250" height="150" controls>
+                  <source src="{{ row['video_url'] }}" type="video/webm">
+                </video>
+                <div class="text">
+                  <div class="description">
+                    <span class="left">by <a href="#">{{ row['username'] }}</a></span>
+                    <span class="right"><a href="{{ url_for('reply') }}?post-id={{ row['post_id'] }}&amp;sender={{ row['sender_id'] }}"><button class="btn btn-success btn-small">Reply</button></a></span>
+                  </div>
+                  <div class="posted">
+                    {{ row['video_time'] }}
+                  </div>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+            {% else %}
+              <legend>Listing videos</legend>
+              <h4>
+                No videos found. Why not upload one now ?
+              </h4>
+              <br><br><br>
+              <a href="{{ url_for('post_new_video') }}"><button class="btn btn-success">Post video</button></a>
+            {% endif %}
+        </ul>
+</div>
+<div class="clearfix"></div>
+{% endblock %}
